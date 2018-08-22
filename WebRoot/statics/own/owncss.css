@@ -1,0 +1,7 @@
+.search-filter li{
+	list-style-type: none;
+	display: inline-block;	
+}
+.search-filter{
+	width:800px;
+}

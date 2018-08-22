@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!-- 开启注解扫描 -->
+    <context:component-scan base-package="com.appinfosys"/>
+    <!-- 开启注解的映射器和适配器 -->
+    <mvc:annotation-driven>
+    	<mvc:message-converters>
+    		<!-- 中文乱码 -->
+    		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+    			<property name="supportedMediaTypes">
+    				<list>
+    					<value>text/html;charset=utf-8</value>
+    				</list>
+    			</property>
+    		</bean>
+    		<!-- json数据支持 -->
+    		<bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+    			<property name="features">
+    				<list>
+    					<value>WriteDateUseDateFormat</value>
+    				</list>
+    			</property>
+    			<property name="supportedMediaTypes">
+    				<list>
+    					<value>text/html;charset=UTF-8</value>
+    					<value>application/json</value>
+    				</list>
+    			</property>
+    		</bean>
+    	</mvc:message-converters>
+    </mvc:annotation-driven>
+    <!-- 配置多视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+    	<property name="favorParameter"  value="true" />
+		<property name="defaultContentType" value="text/html" />
+		<property name="mediaTypes">
+			<map>
+			   <entry key="html" value="text/html;charset=UTF-8"/>
+			   <entry key="json" value="application/json;charset=UTF-8"/>
+			   <entry key="xml" value="application/xml;charset=UTF-8"/>
+			</map> 
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/WEB-INF/jsp/"></property>
+					<property name="suffix" value=".jsp"></property>
+				</bean>
+			</list>
+		</property>
+    </bean>
+    <!-- 配置静态资源过滤操作 -->
+    <mvc:resources location="/statics/" mapping="/statics/**" />
+    <!-- 配置文件上传解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<property name="maxUploadSize" value="5242880"></property>
+		<property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/dev/**"/>
+    		<bean class="com.appinfosys.interceptor.SysInterceptor"></bean>
+    	</mvc:interceptor>
+    </mvc:interceptors>
+</beans>    

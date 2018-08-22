@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.appinfosys.dao.appInfo.AppInfoMapper">
+	<!-- 查询所有app信息 -->
+	<!-- <resultMap type="AppInfo" id="appInfoMap">
+		<id  property="id" column="id"/>
+		<result property="APKName" column="APKName"/>
+		<result property="appStatusName" column="appFlatform"/>
+		<result property="softwareName" column="softwareName"/>
+		<result property="softwareSize" column="softwareSize"/>
+		<result property="statusId" column="statusId"/>
+		<result property="flatformId" column="flatformId"/>
+		<result property="downloads" column="downloads"/>
+		<result property="appFlatformName" column="app_Flatform"/>
+		<result property="appStatusName" column="app_Status"/>
+		<result property="appFlatform" column="app_Flatform"/>
+		<result property="appStatus" column="app_Status"/>
+		<association property="appFlatform" javaType="AppFlatform">
+			<id  property="id" column="id"/>
+			<result property="app_Flatform" column="app_Flatform"/>
+		</association>
+		<association property="appStatus" javaType="AppStatus">
+			<id  property="id" column="id"/>
+			<result property="app_Status" column="app_Status"/>
+		</association>
+	</resultMap> -->
+	<select id="getAllAppsInfo" resultType="AppInfo">
+	<!-- <select id="getAllAppsInfo" resultMap="appInfoMap"> -->
+		<!-- SELECT * f.appFlatform FROM app_info a LEFT JOIN app_flatform f ON (a.flatformId = f.id) --> 
+		SELECT *
+		FROM app_info
+		ORDER BY id DESC
+		
+		<!-- SELECT a.*,s.app_Status AS appStatusName,f.app_Flatform AS appFlatformName
+		FROM app_info a,app_status s,app_flatform f
+		WHERE a.statusId = s.id AND a.flatformId = f.id
+		ORDER BY id DESC -->
+	</select>
+	
+	<!-- 增加app -->
+	<insert id="addApp">
+		INSERT INTO app_info (softwareName,APKName,supportROM,interfaceLanguage,softwareSize,downloads,appInfo,logoLocPath,logoPicPath,statusId)
+		VALUES (#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{appInfo},#{logoLocPath},#{logoPicPath},1)
+	</insert>
+	
+	<!-- 删除app -->
+	<delete id="deleteApp">
+		DELETE FROM app_info WHERE id = #{id}
+	</delete>
+	
+	<!-- 根据id查询app -->
+	<select id="getAppInfoById" resultType="AppInfo">
+		SELECT * FROM app_info WHERE id = #{id}
+	</select>
+	
+	<!-- 根据app名称模糊查询app -->
+	<select id="getAppInfoBySoftwareName" resultType="AppInfo">
+		SELECT * FROM app_info WHERE softwareName LIKE CONCAT('%',#{softwareName},'%')
+	</select>
+	
+	<update id="modifyAppInfoById">
+		UPDATE app_info 
+		SET softwareName = #{softwareName},softwareSize=#{softwareSize},APKName = #{APKName},statusId=#{statusId},supportROM=#{supportROM},
+			interfaceLanguage = #{interfaceLanguage},downloads=#{downloads},flatformId=#{flatformId},appInfo = #{appInfo}
+		WHERE id = #{id}
+	</update>
+	
+	<select id="getAppInfoByStatusId" resultType="AppInfo">
+		SELECT * FROM app_info WHERE statusId = 1 ORDER BY id DESC
+	</select>
+	
+	<update id="verifyAppInfoById">
+		UPDATE app_info SET statusId = 2 WHERE id = #{id}
+	</update>
+	
+	<update id="shangJiaAppById">
+		UPDATE app_info SET statusId = 4 WHERE id = #{id}
+	</update>
+	
+	<update id="xiaJiaAppById">
+		UPDATE app_info SET statusId = 5 WHERE id = #{id}
+	</update>
+	
+	<select id="getAppInfoBySoftWareName" resultType="AppInfo">
+		SELECT * FROM app_info WHERE softwareName = #{softwareName}
+	</select>
+</mapper>
