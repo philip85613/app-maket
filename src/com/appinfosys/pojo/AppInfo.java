@@ -28,6 +28,7 @@ public class AppInfo {
 	private String logoPicPath;
 	private String logoLocPath;
 	private Integer versionId;
+	private String appSummary;
 	
 	/*private AppFlatform appFlatform;
 	private AppStatus appStatus;
@@ -45,6 +46,12 @@ public class AppInfo {
 		this.appFlatform = appFlatform;
 	}*/
 	
+	public String getAppSummary() {
+		return appSummary;
+	}
+	public void setAppSummary(String appSummary) {
+		this.appSummary = appSummary;
+	}
 	private String appFlatformName;
 	private String appStatusName;
 	

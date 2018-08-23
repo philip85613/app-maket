@@ -34,4 +34,8 @@ public interface AppInfoService {
 	public int xiaJiaAppById(Integer id);
 	
 	public AppInfo getAppInfoBySoftWareName(String softwareName);
+	
+	public List<AppInfo> getAppInfoOrderByDownloads();
+	
+	public List<AppInfo> getAppInfoByStatusIdIsFour();
 }

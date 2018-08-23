@@ -56,34 +56,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 根据app名称模糊查询app -->
-	<select id="getAppInfoBySoftwareName" resultType="AppInfo">
+	<select id="getAppInfosBySoftwareName" resultType="AppInfo">
 		SELECT * FROM app_info WHERE softwareName LIKE CONCAT('%',#{softwareName},'%')
 	</select>
-	
+	<!-- 根据id修改app -->
 	<update id="modifyAppInfoById">
 		UPDATE app_info 
 		SET softwareName = #{softwareName},softwareSize=#{softwareSize},APKName = #{APKName},statusId=#{statusId},supportROM=#{supportROM},
 			interfaceLanguage = #{interfaceLanguage},downloads=#{downloads},flatformId=#{flatformId},appInfo = #{appInfo}
 		WHERE id = #{id}
 	</update>
-	
+	<!-- 根据状态id获取app信息 -->
 	<select id="getAppInfoByStatusId" resultType="AppInfo">
 		SELECT * FROM app_info WHERE statusId = 1 ORDER BY id DESC
 	</select>
-	
+	<!-- 根据id修改app状态id -->
 	<update id="verifyAppInfoById">
 		UPDATE app_info SET statusId = 2 WHERE id = #{id}
 	</update>
-	
+	<!-- 上架app -->
 	<update id="shangJiaAppById">
 		UPDATE app_info SET statusId = 4 WHERE id = #{id}
 	</update>
-	
+	<!-- 下架app -->
 	<update id="xiaJiaAppById">
 		UPDATE app_info SET statusId = 5 WHERE id = #{id}
 	</update>
-	
+	<!-- 根据app名称查询app -->
 	<select id="getAppInfoBySoftWareName" resultType="AppInfo">
 		SELECT * FROM app_info WHERE softwareName = #{softwareName}
+	</select>
+	
+	<!-- 通过下载次数排序所有app -->
+	<select id="getAppInfoOrderByDownloads" resultType="AppInfo">
+		SELECT * FROM app_info ORDER BY downloads DESC
+	</select>
+	<!-- 获得所有已上架的APP -->
+	<select id="getAppInfoByStatusIdIsFour" resultType="AppInfo">
+		SELECT * FROM app_info WHERE statusId = 4
 	</select>
 </mapper>
