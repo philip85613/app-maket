@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.appinfosys.dao.appuser.AppUserMapper">
+	<select id="getAppUser" resultType="AppUser">
+		select * from app_user
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test="appUserCode!=null">
+				and appUserCode=#{appUserCode}
+			</if>
+		</trim>
+	</select>
+	<insert id="addAppUser">
+		insert into app_user (appUserCode,appUserName,appUserPassword,appUserPhoneNum)
+			value(#{appUserCode},#{appUserName},#{appUserPassword},#{appUserPhoneNum})
+	</insert>
+</mapper>
