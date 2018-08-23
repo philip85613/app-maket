@@ -54,4 +54,12 @@ public interface AppInfoMapper {
 	public int xiaJiaAppById(@Param(value="id")Integer id);
 	
 	public AppInfo getAppInfoBySoftWareName(@Param(value="softwareName")String softwareName);
+	
+	public List<AppInfo> getAppInfoOrderByDownloads();
+	
+	/**
+	 * 获得所有已上架的APP
+	 * @return
+	 */
+	public List<AppInfo> getAppInfoByStatusIdIsFour();
 }

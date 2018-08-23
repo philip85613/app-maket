@@ -135,7 +135,7 @@
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-web</artifactId>
-	    <version>3.2.18.RELEASE</version>
+	    <version>4.3.18.RELEASE</version>
 	</dependency>
 	<dependency>
 	    <groupId>org.springframework</groupId>
@@ -195,7 +195,7 @@
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-webmvc</artifactId>
-	    <version>3.2.18.RELEASE</version>
+	    <version>4.3.18.RELEASE</version>
 	</dependency>
 	<dependency>
 	    <groupId>commons-dbcp</groupId>

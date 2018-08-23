@@ -82,4 +82,14 @@ public class AppInfoServiceImpl implements AppInfoService{
 	public AppInfo getAppInfoBySoftWareName(String softwareName) {
 		return appInfoMapper.getAppInfoBySoftWareName(softwareName);
 	}
+
+	@Override
+	public List<AppInfo> getAppInfoOrderByDownloads() {
+		return appInfoMapper.getAppInfoOrderByDownloads();
+	}
+
+	@Override
+	public List<AppInfo> getAppInfoByStatusIdIsFour() {
+		return appInfoMapper.getAppInfoByStatusIdIsFour();
+	}
 }
