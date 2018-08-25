@@ -95,4 +95,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAppInfoByStatusIdIsFour" resultType="AppInfo">
 		SELECT * FROM app_info WHERE statusId = 4
 	</select>
+	
+	<select id="getAllAppInfo" resultMap="appInfoMap">
+		<!-- SELECT i.*,s.app_Status FROM app_info i ,app_status s WHERE i.statusId = s.id -->
+		SELECT i.*,s.app_Status,v.versionNo 
+		FROM app_info i ,app_status s,app_version v WHERE i.statusId = s.id AND i.versionId = v.id
+	</select>
+	<resultMap type="AppInfo" id="appInfoMap">
+		<!-- <id property="id" column="id"/>
+		<result property="statusName" column="app_Status"/>
+		<result property="statusName" column="app_Status"/>
+		<result property="statusName" column="app_Status"/>
+		<result property="statusName" column="app_Status"/>
+		<result property="statusName" column="app_Status"/> -->
+		<result property="versionName" column="versionNo"/>
+		<result property="statusName" column="app_Status"/>
+	</resultMap>
 </mapper>

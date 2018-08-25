@@ -62,4 +62,6 @@ public interface AppInfoMapper {
 	 * @return
 	 */
 	public List<AppInfo> getAppInfoByStatusIdIsFour();
+	
+	public List<AppInfo>	getAllAppInfo();
 }
