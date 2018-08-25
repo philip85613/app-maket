@@ -45,6 +45,14 @@ $(function(){
 	        	}
 	        }
 	    },{
+	        field: 'categoryL1Name',
+	        title: '所属分类'
+	        //width: 100,
+	    },{
+	        field: 'categoryL2Name',
+	        title: '二级分类'
+	        //width: 100,
+	    },{
 	        field: 'statusName',
 	        title: '状态'
 	        /*formatter: function(value,row,index){

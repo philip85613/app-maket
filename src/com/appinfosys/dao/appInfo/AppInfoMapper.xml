@@ -98,16 +98,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getAllAppInfo" resultMap="appInfoMap">
 		<!-- SELECT i.*,s.app_Status FROM app_info i ,app_status s WHERE i.statusId = s.id -->
-		SELECT i.*,s.app_Status,v.versionNo 
-		FROM app_info i ,app_status s,app_version v WHERE i.statusId = s.id AND i.versionId = v.id
+		<!-- SELECT i.*,s.app_Status,v.versionNo 
+		FROM app_info i ,app_status s,app_version v WHERE i.statusId = s.id AND i.versionId = v.id -->
+		SELECT i.*,s.app_Status,v.versionNo,c1.category_Name,c2.categoryLevel2Name
+		FROM app_info i ,app_status s,app_version v,app_categorylevel1 c1,app_categorylevel2 c2
+		WHERE i.statusId = s.id
+		AND i.versionId = v.id
+		AND i.categoryLevel1 = c1.id
+		AND i.categoryLevel2 = c2.id
 	</select>
 	<resultMap type="AppInfo" id="appInfoMap">
 		<!-- <id property="id" column="id"/>
 		<result property="statusName" column="app_Status"/>
 		<result property="statusName" column="app_Status"/>
-		<result property="statusName" column="app_Status"/>
-		<result property="statusName" column="app_Status"/>
-		<result property="statusName" column="app_Status"/> -->
+		<result property="statusName" column="app_Status"/>-->
+		<result property="categoryL1Name" column="category_Name"/>
+		<result property="categoryL2Name" column="categoryLevel2Name"/> 
 		<result property="versionName" column="versionNo"/>
 		<result property="statusName" column="app_Status"/>
 	</resultMap>

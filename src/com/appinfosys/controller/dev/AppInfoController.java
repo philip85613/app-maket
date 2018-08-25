@@ -46,6 +46,12 @@ public class AppInfoController {
 		return JSON.toJSON(map);
 	}*/
 	
+	/**
+	 * APP图标上传处理
+	 * @param myAppLogo
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/fileUpload.json",method=RequestMethod.POST)
 	@ResponseBody 
 	public Object fileUpload(@RequestParam(value="myAppPic") MultipartFile myAppLogo,HttpServletRequest request){
@@ -71,6 +77,40 @@ public class AppInfoController {
 		logoPicPath = request.getContextPath()+"/statics/uploadfiles/"+fileName;
 		map.put("logoLocPath", logoLocPath);
 		map.put("logoPicPath", logoPicPath);
+		return JSON.toJSON(map);
+	}
+	
+	/**
+	 * 上传APP的APK
+	 * @param myAppApk
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/apkFileUpload.json",method=RequestMethod.POST)
+	@ResponseBody 
+	public Object apkFileUpload(@RequestParam(value="myAppApk") MultipartFile myAppApk,HttpServletRequest request){
+		log.debug("进入apkFileUpload==================================");
+		String fileLocPath = null;
+		String filePath = null;
+		String path = request.getSession().getServletContext().getRealPath("statics"+File.separator+"uploadfiles");
+		log.debug("path==================="+path);
+		String fileName = System.currentTimeMillis()+".apk";
+		File file = new File(path,fileName);
+		if(!file.exists()){
+			file.mkdirs();
+		}
+		try {
+			myAppApk.transferTo(file);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		fileLocPath = path + File.separator + fileName;
+		filePath = request.getContextPath()+"/statics/uploadfiles/"+fileName;
+		map.put("logoLocPath", fileLocPath);
+		map.put("logoPicPath", filePath);
 		return JSON.toJSON(map);
 	}
 	
