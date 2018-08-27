@@ -9,12 +9,12 @@ import com.appinfosys.pojo.AppInfo;
 public interface AppInfoMapper {
 
 	public List<AppInfo> getAppInfoList(@Param(value="softwareName")String querySoftwareName,
-			@Param(value="status")Integer queryStatus,
-			@Param(value="categoryLevel1")Integer queryCategoryLevel1,
-			@Param(value="categoryLevel2")Integer queryCategoryLevel2,
-			@Param(value="categoryLevel3")Integer queryCategoryLevel3,
-			@Param(value="flatformId")Integer queryFlatformId,
-			@Param(value="devId")Integer devId);
+										@Param(value="status")Integer queryStatus,
+										@Param(value="categoryLevel1")Integer queryCategoryLevel1,
+										@Param(value="categoryLevel2")Integer queryCategoryLevel2,
+										@Param(value="categoryLevel3")Integer queryCategoryLevel3,
+										@Param(value="flatformId")Integer queryFlatformId,
+										@Param(value="devId")Integer devId);
 	
 	public List<AppInfo> getAllAppsInfo();
 	
@@ -26,7 +26,9 @@ public interface AppInfoMapper {
 				 	  @Param(value="downloads")Integer downloads,
 				 	  @Param(value="appInfo")String appInfo,
 				 	  @Param(value="logoLocPath")String logoLocPath,
-				 	  @Param(value="logoPicPath")String logoPicPath);
+				 	  @Param(value="logoPicPath")String logoPicPath,
+				 	  @Param(value="fileLocPath")String fileLocPath,
+				 	  @Param(value="filePath")String filePath);
 	
 	public int deleteApp(@Param(value="id")Integer id);
 	
@@ -63,5 +65,5 @@ public interface AppInfoMapper {
 	 */
 	public List<AppInfo> getAppInfoByStatusIdIsFour();
 	
-	public List<AppInfo>	getAllAppInfo();
+	public List<AppInfo> getAllAppInfo();
 }

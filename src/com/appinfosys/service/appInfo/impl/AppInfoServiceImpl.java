@@ -32,8 +32,9 @@ public class AppInfoServiceImpl implements AppInfoService{
 	@Override
 	public int addApp(String softwareName, String APKName, String supportROM,
 			String interfaceLanguage, Integer softwareSize, Integer downloads,
-			String appInfo,String logoLocPath,String logoPicPath) {
-		return appInfoMapper.addApp(softwareName, APKName, supportROM, interfaceLanguage, softwareSize, downloads, appInfo, logoLocPath,logoPicPath);
+			String appInfo,String logoLocPath,String logoPicPath,String fileLocPath,String filePath) {
+		return appInfoMapper.addApp(softwareName, APKName, supportROM, interfaceLanguage, softwareSize, 
+									downloads, appInfo, logoLocPath,logoPicPath,fileLocPath,filePath);
 	}
 
 	@Override
@@ -91,5 +92,10 @@ public class AppInfoServiceImpl implements AppInfoService{
 	@Override
 	public List<AppInfo> getAppInfoByStatusIdIsFour() {
 		return appInfoMapper.getAppInfoByStatusIdIsFour();
+	}
+
+	@Override
+	public List<AppInfo> getAllAppInfo() {
+		return appInfoMapper.getAllAppInfo();
 	}
 }

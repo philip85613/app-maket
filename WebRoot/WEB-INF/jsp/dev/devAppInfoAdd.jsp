@@ -121,7 +121,7 @@
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-4">
-                                                    <select class="form-control-appFlatform" name="select">
+                                                    <select class="form-control-appFlatform" name="flatformId">
                                                         <option value="">--请选择--</option>
                                                         <option value="Category 1">Category 1</option>
                                                         <option value="Category 2">Category 2</option>
@@ -135,7 +135,7 @@
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-4">
-                                                    <select class="form-control-appCategorylevel1" name="select">
+                                                    <select class="form-control-appCategorylevel1" name="categoryLevel1">
                                                         <option value="">--请选择--</option>
                                                         <option value="Category 1">Category 1</option>
                                                         <option value="Category 2">Category 2</option>
@@ -144,12 +144,12 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <!-- <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3">二级分类
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-4">
-                                                    <select class="form-control" name="select">
+                                                    <select class="form-control-appCategorylevel2" name="categoryLevel2">
                                                         <option value="">--请选择--</option>
                                                         <option value="Category 1">Category 1</option>
                                                         <option value="Category 2">Category 2</option>
@@ -157,13 +157,21 @@
                                                         <option value="Category 4">Category 4</option>
                                                     </select>
                                                 </div>
-                                            </div> -->
+                                            </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3">APP状态
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-4">
                                                     	待审核 
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">软件版本
+                                                    <span class="required"> * </span>
+                                                </label>
+                                                <div class="col-md-4">
+                                                    	V1.1.1
                                                 </div>
                                             </div>
                                             <div class="form-group">

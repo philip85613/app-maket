@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.appinfosys.dao.appCategoryLevel.AppCategoryLevel2Mapper">
+	<select id="getAllAppCategoryLevel2" resultType="AppCategoryLevel2">
+		SELECT categoryLevel2Name FROM app_categorylevel2
+	</select>
+</mapper>

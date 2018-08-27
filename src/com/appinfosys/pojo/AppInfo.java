@@ -33,6 +33,8 @@ public class AppInfo {
 	private String versionName;
 	private String categoryL1Name;
 	private String categoryL2Name;
+	private String fileLocPath;
+	private String filePath;
 	
 	/*private AppFlatform appFlatform;
 	private AppStatus appStatus;
@@ -50,6 +52,18 @@ public class AppInfo {
 		this.appFlatform = appFlatform;
 	}*/
 	
+	public String getFileLocPath() {
+		return fileLocPath;
+	}
+	public void setFileLocPath(String fileLocPath) {
+		this.fileLocPath = fileLocPath;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
 	public String getCategoryL1Name() {
 		return categoryL1Name;
 	}

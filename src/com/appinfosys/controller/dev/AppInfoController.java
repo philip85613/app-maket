@@ -129,8 +129,10 @@ public class AppInfoController {
 	
 	@RequestMapping("/doAppAdd")
 	public String doAppAdd(String softwareName,String APKName,String supportROM,String interfaceLanguage,
-	 							Integer softwareSize,Integer downloads,String appInfo,String logoLocPath,String logoPicPath){
-		appInfoMapper.addApp(softwareName, APKName, supportROM, interfaceLanguage, softwareSize, downloads, appInfo, logoLocPath,logoPicPath);
+	 							Integer softwareSize,Integer downloads,String appInfo,String logoLocPath,
+	 							String logoPicPath,String fileLocPath,String filePath){
+		appInfoMapper.addApp(softwareName, APKName, supportROM, interfaceLanguage, softwareSize, downloads, 
+								appInfo, logoLocPath,logoPicPath,fileLocPath,filePath);
 		return "redirect:/dev/appinfo";
 	}
 	
@@ -228,7 +230,7 @@ public class AppInfoController {
 	@ResponseBody
 	public Object appInfosList(){
 		log.debug("进入appInfosList==================================");
-		List<AppInfo> appInfoList = appInfoMapper.getAllAppInfo();
+		List<AppInfo> appInfoList = appInfoService.getAllAppInfo();
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("total", appInfoList.size());
 		map.put("rows", appInfoList);

@@ -4,28 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.appinfosys.dao.appInfo.AppInfoMapper">
 	<!-- 查询所有app信息 -->
-	<!-- <resultMap type="AppInfo" id="appInfoMap">
-		<id  property="id" column="id"/>
-		<result property="APKName" column="APKName"/>
-		<result property="appStatusName" column="appFlatform"/>
-		<result property="softwareName" column="softwareName"/>
-		<result property="softwareSize" column="softwareSize"/>
-		<result property="statusId" column="statusId"/>
-		<result property="flatformId" column="flatformId"/>
-		<result property="downloads" column="downloads"/>
-		<result property="appFlatformName" column="app_Flatform"/>
-		<result property="appStatusName" column="app_Status"/>
-		<result property="appFlatform" column="app_Flatform"/>
-		<result property="appStatus" column="app_Status"/>
-		<association property="appFlatform" javaType="AppFlatform">
-			<id  property="id" column="id"/>
-			<result property="app_Flatform" column="app_Flatform"/>
-		</association>
-		<association property="appStatus" javaType="AppStatus">
-			<id  property="id" column="id"/>
-			<result property="app_Status" column="app_Status"/>
-		</association>
-	</resultMap> -->
 	<select id="getAllAppsInfo" resultType="AppInfo">
 	<!-- <select id="getAllAppsInfo" resultMap="appInfoMap"> -->
 		<!-- SELECT * f.appFlatform FROM app_info a LEFT JOIN app_flatform f ON (a.flatformId = f.id) --> 
@@ -41,8 +19,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 增加app -->
 	<insert id="addApp">
-		INSERT INTO app_info (softwareName,APKName,supportROM,interfaceLanguage,softwareSize,downloads,appInfo,logoLocPath,logoPicPath,statusId)
-		VALUES (#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{appInfo},#{logoLocPath},#{logoPicPath},1)
+		INSERT INTO app_info (softwareName,APKName,supportROM,interfaceLanguage,softwareSize,downloads,appInfo,logoLocPath,logoPicPath,fileLocPath,filePath,statusId,versionId)
+		VALUES (#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{appInfo},#{logoLocPath},#{logoPicPath},#{fileLocPath},#{filePath},1,33)
 	</insert>
 	
 	<!-- 删除app -->
@@ -106,6 +84,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND i.versionId = v.id
 		AND i.categoryLevel1 = c1.id
 		AND i.categoryLevel2 = c2.id
+		ORDER BY id DESC
 	</select>
 	<resultMap type="AppInfo" id="appInfoMap">
 		<!-- <id property="id" column="id"/>
