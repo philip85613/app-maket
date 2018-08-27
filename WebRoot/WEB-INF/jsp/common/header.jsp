@@ -18,7 +18,7 @@
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li class="dropdown dropdown-user">
                     <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
-                      	 欢迎您: <img alt="" class="img-circle" src="${pageContext.request.contextPath }/statics/assets/pages/media/users/avatar3.jpg" />
+                      	 欢迎您: <img alt="" class="img-circle" src="${pageContext.request.contextPath }/statics/assets/pages/media/users/avatar2.jpg" />
                         <span class="username username-hide-on-mobile"> ${devUserSession.devCode } </span>
                         <i class="fa fa-angle-down"></i>
                     </a>

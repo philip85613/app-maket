@@ -45,11 +45,19 @@ $(function(){
 	        	}
 	        }
 	    },{
-	        field: 'statusId',
-	        title: '状态',
-	        formatter: function(value,row,index){
+	        field: 'categoryL1Name',
+	        title: '所属分类'
+	        //width: 100,
+	    },{
+	        field: 'categoryL2Name',
+	        title: '二级分类'
+	        //width: 100,
+	    },{
+	        field: 'statusName',
+	        title: '状态'
+	        /*formatter: function(value,row,index){
 	        	return getStatus(value-1);
-	        }
+	        }*/
 	        /*function(value,row,index){
 	        	if(value===1){
 	        		return "待审核";
@@ -71,7 +79,7 @@ $(function(){
 	        field: 'downloads',
 	        title: '下载次数'
 	    },{
-	        field: 'versionId',
+	        field: 'versionName',
 	        title: '最新版本号',
 	        sortable: true,
 	        width: 80

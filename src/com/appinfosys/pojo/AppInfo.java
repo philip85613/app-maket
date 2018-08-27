@@ -29,6 +29,10 @@ public class AppInfo {
 	private String logoLocPath;
 	private Integer versionId;
 	private String appSummary;
+	private String statusName;
+	private String versionName;
+	private String categoryL1Name;
+	private String categoryL2Name;
 	
 	/*private AppFlatform appFlatform;
 	private AppStatus appStatus;
@@ -46,6 +50,30 @@ public class AppInfo {
 		this.appFlatform = appFlatform;
 	}*/
 	
+	public String getCategoryL1Name() {
+		return categoryL1Name;
+	}
+	public void setCategoryL1Name(String categoryL1Name) {
+		this.categoryL1Name = categoryL1Name;
+	}
+	public String getCategoryL2Name() {
+		return categoryL2Name;
+	}
+	public void setCategoryL2Name(String categoryL2Name) {
+		this.categoryL2Name = categoryL2Name;
+	}
+	public String getVersionName() {
+		return versionName;
+	}
+	public void setVersionName(String versionName) {
+		this.versionName = versionName;
+	}
+	public String getStatusName() {
+		return statusName;
+	}
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
 	public String getAppSummary() {
 		return appSummary;
 	}

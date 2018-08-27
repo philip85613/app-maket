@@ -16,9 +16,9 @@ import com.appinfosys.service.appInfo.AppInfoService;
 
 @Controller
 @RequestMapping("/appbox")
-public class AppBox {
+public class AppBoxController {
 
-	private static Logger log = Logger.getLogger(AppBox.class);
+	private static Logger log = Logger.getLogger(AppBoxController.class);
 	
 	@Resource
 	private	AppInfoService appInfoService;

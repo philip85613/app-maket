@@ -33,7 +33,7 @@ public class AppInfoController {
 	@Resource
 	private	AppInfoService appInfoService;
 	
-	@RequestMapping("/data1.json")
+	/*@RequestMapping("/data1.json")
 	@ResponseBody
 	public Object appInfoList(){
 		log.debug("进入appInfoList==================================");
@@ -44,8 +44,14 @@ public class AppInfoController {
 		log.debug("map================"+map);
 		log.debug("JSON================"+JSON.toJSON(appInfoList));
 		return JSON.toJSON(map);
-	}
+	}*/
 	
+	/**
+	 * APP图标上传处理
+	 * @param myAppLogo
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/fileUpload.json",method=RequestMethod.POST)
 	@ResponseBody 
 	public Object fileUpload(@RequestParam(value="myAppPic") MultipartFile myAppLogo,HttpServletRequest request){
@@ -71,6 +77,40 @@ public class AppInfoController {
 		logoPicPath = request.getContextPath()+"/statics/uploadfiles/"+fileName;
 		map.put("logoLocPath", logoLocPath);
 		map.put("logoPicPath", logoPicPath);
+		return JSON.toJSON(map);
+	}
+	
+	/**
+	 * 上传APP的APK
+	 * @param myAppApk
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/apkFileUpload.json",method=RequestMethod.POST)
+	@ResponseBody 
+	public Object apkFileUpload(@RequestParam(value="myAppApk") MultipartFile myAppApk,HttpServletRequest request){
+		log.debug("进入apkFileUpload==================================");
+		String fileLocPath = null;
+		String filePath = null;
+		String path = request.getSession().getServletContext().getRealPath("statics"+File.separator+"uploadfiles");
+		log.debug("path==================="+path);
+		String fileName = System.currentTimeMillis()+".apk";
+		File file = new File(path,fileName);
+		if(!file.exists()){
+			file.mkdirs();
+		}
+		try {
+			myAppApk.transferTo(file);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		fileLocPath = path + File.separator + fileName;
+		filePath = request.getContextPath()+"/statics/uploadfiles/"+fileName;
+		map.put("logoLocPath", fileLocPath);
+		map.put("logoPicPath", filePath);
 		return JSON.toJSON(map);
 	}
 	
@@ -101,7 +141,7 @@ public class AppInfoController {
 		log.debug("id  "+id);
 		int result = appInfoMapper.deleteApp(Integer.parseInt(id));
 		log.debug("result  "+result);
-		return this.appInfoList();
+		return this.appInfosList();
 	}
 	
 	@RequestMapping(value="/appVerify.json")
@@ -154,7 +194,7 @@ public class AppInfoController {
 		log.debug("id  "+id);
 		int result = appInfoMapper.shangJiaAppById(Integer.parseInt(id));
 		log.debug("result  "+result);
-		return this.appInfoList();
+		return this.appInfosList();
 	}
 	
 	@RequestMapping(value="/appXiaJia.json")
@@ -164,7 +204,7 @@ public class AppInfoController {
 		log.debug("id  "+id);
 		int result = appInfoMapper.xiaJiaAppById(Integer.parseInt(id));
 		log.debug("result  "+result);
-		return this.appInfoList();
+		return this.appInfosList();
 	}
 	@RequestMapping("/verifySoftwareName")
 	@ResponseBody
@@ -181,6 +221,19 @@ public class AppInfoController {
 			map.put("msg", "软件名称可以使用!");
 		}
 		log.debug("map================"+map);
+		return JSON.toJSON(map);
+	}
+	
+	@RequestMapping("/data1.json")
+	@ResponseBody
+	public Object appInfosList(){
+		log.debug("进入appInfosList==================================");
+		List<AppInfo> appInfoList = appInfoMapper.getAllAppInfo();
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("total", appInfoList.size());
+		map.put("rows", appInfoList);
+		log.debug("map================"+map);
+		log.debug("JSON================"+JSON.toJSON(appInfoList));
 		return JSON.toJSON(map);
 	}
 }
