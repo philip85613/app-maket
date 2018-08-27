@@ -29,5 +29,9 @@ public class AppUserServiceImpl implements AppUserService{
 		result=appUserMapper.addAppUser(appUserCode, appUserName, appUserPassword, appUserPhoneNum);
 		return result;
 	}
+	@Override
+	public AppUser getAppUserInfo(String appUserCode) {
+		return appUserMapper.getAppUser(appUserCode);
+	}
 
 }
