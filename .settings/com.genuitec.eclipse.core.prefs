@@ -1,3 +1,3 @@
 eclipse.preferences.version=1
-validator.Checked=WebRoot/assets,WebRoot/statics
-validator.Unchecked=
+validator.Checked=WebRoot/statics/assets/global/plugins/moment.min.js,WebRoot/statics/assets/global/plugins/fullcalendar/lib/moment.min.js,WebRoot/statics/assets/global/plugins/bootstrap-sweetalert/sweetalert.js,WebRoot/statics/assets/global/plugins/jquery.min.js,WebRoot/statics/assets/global/plugins/fullcalendar/lang-all.js,WebRoot/statics/assets/global/plugins/morris/raphael-min.js,WebRoot/statics/assets/global/plugins/fullcalendar/lib/jquery.min.js,WebRoot/assets,WebRoot/statics,WebRoot/statics/assets/bootstrap-fileinput/js/plugins/sortable.min.js
+validator.Unchecked=WebRoot/statics/assets/global/plugins
