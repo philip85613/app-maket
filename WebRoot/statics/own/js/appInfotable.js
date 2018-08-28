@@ -200,21 +200,30 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 				console.log(data);
+				console.log("data.softwareName");
+				console.log(data.softwareName);
 				$(".col-md-12").hide();
 				$(".col-lg-4").hide();
 				$(".form-actions #save").hide();
-				$("#softwareName").val(data.softwareName);
-				$("#flatformId").val(data.flatformId);
-				$("#APKName").val(data.aPKName);
-				$("#supportROM").val(data.supportROM);
-				$("#interfaceLanguage").val(data.interfaceLanguage);
-				$("#downloads").val(data.downloads);
-				$("#statusId").val(data.statusId);
-				$("#appInfo").val(data.appInfo);
-				$("#softwareSize").val(data.softwareSize);
 				$("#appInfoDetail").show();
-				console.log("data.softwareName");
-				console.log(data.softwareName);
+				//$("#appInfoDetail").text("123123123");
+				$("#appInfoDetail #softwareName").val(data.softwareName);
+				if(data.flatformId==1){
+					$("#appInfoDetail #flatformId").val("手机");
+				}
+				if(data.flatformId==2){
+					$("#appInfoDetail #flatformId").val("平板");
+				}
+				if(data.flatformId==3){
+					$("#appInfoDetail #flatformId").val("通用");
+				}
+				$("#appInfoDetail #APKName").val(data.aPKName);
+				$("#appInfoDetail #supportROM").val(data.supportROM);
+				$("#appInfoDetail #interfaceLanguage").val(data.interfaceLanguage);
+				$("#appInfoDetail #downloads").val(data.downloads);
+				$("#appInfoDetail #statusId").val(data.statusName);
+				$("#appInfoDetail #appInfo").val(data.appInfo);
+				$("#appInfoDetail #softwareSize").val(data.softwareSize);
 			}
 		});
 	});
@@ -232,16 +241,15 @@ $(function(){
 				//alert("即将跳转查看页面!");
 				$(".col-md-12").hide();
 				$(".col-lg-4").hide();
-				$("#appId").val(data.id);
-				$("#softwareName").val(data.softwareName);
-				$("#APKName").val(data.aPKName);
-				$("#flatformId").val(data.flatformId);
-				$("#supportROM").val(data.supportROM);
-				$("#interfaceLanguage").val(data.interfaceLanguage);
-				$("#downloads").val(data.downloads);
-				$("#statusId").val(data.statusId);
-				$("#appInfo").val(data.appInfo);
-				$("#softwareSize").val(data.softwareSize);
+				$("#appInfoDetail #appId").val(data.id);
+				$("#appInfoDetail #softwareName").val(data.softwareName);
+				$("#appInfoDetail #APKName").val(data.aPKName);
+				$("#appInfoDetail #supportROM").val(data.supportROM);
+				$("#appInfoDetail #interfaceLanguage").val(data.interfaceLanguage);
+				$("#appInfoDetail #downloads").val(data.downloads);
+				$("#appInfoDetail #statusId").val(data.statusName);
+				$("#appInfoDetail #appInfo").val(data.appInfo);
+				$("#appInfoDetail #softwareSize").val(data.softwareSize);
 				$("#appInfoDetail").show();
 				console.log("data.softwareName");
 				console.log(data.softwareName);

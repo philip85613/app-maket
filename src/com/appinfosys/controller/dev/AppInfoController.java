@@ -179,7 +179,7 @@ public class AppInfoController {
 	public Object doAppView(@RequestParam String id){
 		log.debug("进入doAppView=========================>");
 		log.debug("id  "+id);
-		AppInfo appInfo = appInfoMapper.getAppInfoById(Integer.parseInt(id));
+		AppInfo appInfo = appInfoMapper.getAppInfoResultMapById(Integer.parseInt(id));
 		log.debug("appInfo  "+appInfo);
 		return JSON.toJSON(appInfo);
 	}

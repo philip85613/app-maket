@@ -69,4 +69,6 @@ public interface AppInfoMapper {
 	public List<AppInfo> getAppInfoByStatusIdIsFour();
 	
 	public List<AppInfo> getAllAppInfo();
+	
+	public AppInfo getAppInfoResultMapById(@Param(value="id")Integer id);
 }

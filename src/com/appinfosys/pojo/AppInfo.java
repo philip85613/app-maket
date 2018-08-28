@@ -36,22 +36,6 @@ public class AppInfo {
 	private String fileLocPath;
 	private String filePath;
 	
-	/*private AppFlatform appFlatform;
-	private AppStatus appStatus;
-	
-	public AppStatus getAppStatus() {
-		return appStatus;
-	}
-	public void setAppStatus(AppStatus appStatus) {
-		this.appStatus = appStatus;
-	}
-	public AppFlatform getAppFlatform() {
-		return appFlatform;
-	}
-	public void setAppFlatform(AppFlatform appFlatform) {
-		this.appFlatform = appFlatform;
-	}*/
-	
 	public String getFileLocPath() {
 		return fileLocPath;
 	}

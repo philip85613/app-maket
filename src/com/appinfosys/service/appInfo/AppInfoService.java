@@ -41,4 +41,6 @@ public interface AppInfoService {
 	public List<AppInfo> getAppInfoByStatusIdIsFour();
 	
 	public List<AppInfo> getAllAppInfo();
+	
+	public AppInfo getAppInfoResultMapById(Integer id);
 }
