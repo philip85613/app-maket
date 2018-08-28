@@ -77,11 +77,11 @@ $(function(){
 	        }*/
 	    },{
 	        field: 'downloads',
+	        sortable: true,
 	        title: '下载次数'
 	    },{
 	        field: 'versionName',
 	        title: '最新版本号',
-	        sortable: true,
 	        width: 80
 	    },{
 	        field: 'id',

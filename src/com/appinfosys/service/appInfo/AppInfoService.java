@@ -14,7 +14,8 @@ public interface AppInfoService {
 	public List<AppInfo> getAllAppsInfo();
 	
 	public int addApp(String softwareName,String APKName,String supportROM,String interfaceLanguage,
-		 	 			Integer softwareSize,Integer downloads,String appInfo,String logoLocPath,String logoPicPath);
+		 	 			Integer softwareSize,Integer downloads,String appInfo,String logoLocPath,
+		 	 			String logoPicPath,String fileLocPath,String filePath,Integer flatformId,Integer categoryLevel1,Integer categoryLevel2);
 	
 	public int deleteApp(Integer id);
 	
@@ -38,4 +39,6 @@ public interface AppInfoService {
 	public List<AppInfo> getAppInfoOrderByDownloads();
 	
 	public List<AppInfo> getAppInfoByStatusIdIsFour();
+	
+	public List<AppInfo> getAllAppInfo();
 }

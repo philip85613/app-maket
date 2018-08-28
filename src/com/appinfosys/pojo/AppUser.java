@@ -32,6 +32,7 @@ public class AppUser {
 		this.appUserEmail = appUserEmail;
 	}
 	private String appUserPicPath;//用户照片地址
+	
 	public Integer getId() {
 		return id;
 	}
