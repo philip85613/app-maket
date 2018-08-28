@@ -2,6 +2,10 @@ package com.appinfosys.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
 /*
  * app用户实体类
  */
@@ -13,9 +17,20 @@ public class AppUser {
 	private String appUserPassword;//用户登录密码
 	private char appUserSex;//用户性别
 	private Integer createBy;//用户创建id
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JSONField(format="yyyy-MM-dd")
 	private Date creationDate;//用户创建日期
 	private String appUserPhoneNum;//用户手机号
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JSONField(format="yyyy-MM-dd")
 	private Date appUserBirthday;//用户出生日期
+	private String appUserEmail;//用户邮箱地址
+	public String getAppUserEmail() {
+		return appUserEmail;
+	}
+	public void setAppUserEmail(String appUserEmail) {
+		this.appUserEmail = appUserEmail;
+	}
 	private String appUserPicPath;//用户照片地址
 	
 	public Integer getId() {
