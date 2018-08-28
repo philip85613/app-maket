@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -24,7 +25,10 @@ public class AppCategoryLevelController {
 	private AppCategoryLevel1Service appCategoryLevel1Service;
 	@Resource
 	private AppCategoryLevel2Service appCategoryLevel2Service;
-	
+	/**
+	 * 获得一级分类
+	 * @return
+	 */
 	@RequestMapping("/getAppCategoryLevel1.json")
 	@ResponseBody
 	public Object getAppCategoryLevel1(){
@@ -33,11 +37,16 @@ public class AppCategoryLevelController {
 		log.debug("AppCategoryLevel1=================================="+appCategoryLevel1.size());
 		return JSON.toJSON(appCategoryLevel1);
 	}
+	/**
+	 * 根据一级分类获得二级分类
+	 * @param optionValueLevel1
+	 * @return
+	 */
 	@RequestMapping("/getAppCategoryLevel2.json")
 	@ResponseBody
-	public Object getAppCategoryLevel12(){
+	public Object getAppCategoryLevel12(@RequestParam(value="optionValueLevel1")Integer optionValueLevel1){
 		log.debug("进入getAppCategoryLevel2==================================");
-		List<AppCategoryLevel2> appCategoryLevel2 = appCategoryLevel2Service.getAllAppCategoryLevel2();
+		List<AppCategoryLevel2> appCategoryLevel2 = appCategoryLevel2Service.getAllAppCategoryLevel2ByParentId(optionValueLevel1);
 		log.debug("AppCategoryLevel2=================================="+appCategoryLevel2.size());
 		return JSON.toJSON(appCategoryLevel2);
 	}

@@ -28,7 +28,10 @@ public interface AppInfoMapper {
 				 	  @Param(value="logoLocPath")String logoLocPath,
 				 	  @Param(value="logoPicPath")String logoPicPath,
 				 	  @Param(value="fileLocPath")String fileLocPath,
-				 	  @Param(value="filePath")String filePath);
+				 	  @Param(value="filePath")String filePath,
+				 	  @Param(value="flatformId")Integer flatformId,
+				 	  @Param(value="categoryLevel1")Integer categoryLevel1,
+				 	  @Param(value="categoryLevel2")Integer categoryLevel2);
 	
 	public int deleteApp(@Param(value="id")Integer id);
 	

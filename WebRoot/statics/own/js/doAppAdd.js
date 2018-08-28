@@ -12,7 +12,7 @@ $(function(){
 		$(".form-control-appFlatform").empty();
 		var str = "<option value=''>--请选择--</option>";
 		for (var i=0;i<data.length;i++) {
-			str += "<option value='"+i+"'>"+data[i].app_Flatform+"</option>";
+			str += "<option value='"+(i+1)+"'>"+data[i].app_Flatform+"</option>";
 		}
 		$(".form-control-appFlatform").append(str);
 	}
@@ -22,21 +22,33 @@ $(function(){
 		$(".form-control-appCategorylevel1").empty();
 		var str = "<option value=''>--请选择--</option>";
 		for (var i=0;i<data.length;i++) {
-			str += "<option value='"+i+"'>"+data[i].category_Name+"</option>";
+			str += "<option value='"+(i+1)+"'>"+data[i].category_Name+"</option>";
 		}
 		$(".form-control-appCategorylevel1").append(str);
 	}
-	//二级分类
-	$.getJSON(getPath()+"/getAppCategoryLevel2.json",success2);
-	function success2(data){
-		$(".form-control-appCategorylevel2").empty();
-		var str = "<option value=''>--请选择--</option>";
-		for (var i=0;i<data.length;i++) {
-			str += "<option value='"+i+"'>"+data[i].categoryLevel2Name+"</option>";
+	//根据一级分类获得二级分类
+	$(".form-control-appCategorylevel1").change(function(){
+		//获取一级分类的value值
+	    var optionValueLevel1=$(".form-control-appCategorylevel1").val();
+	    $.getJSON(getPath()+"/getAppCategoryLevel2.json?optionValueLevel1="+optionValueLevel1,success2);
+		function success2(data){
+			//alert(optionValue);
+			$(".form-control-appCategorylevel2").empty();
+			var str = "<option value=''>--请选择--</option>";
+			for (var i=0;i<data.length;i++) {
+				str += "<option value='"+(i+1)+"'>"+data[i].categoryLevel2Name+"</option>";
+			}
+			$(".form-control-appCategorylevel2").append(str);
+			/*$(".form-control-appCategorylevel2").change(function(){
+				var optionValueLevel2=$(".form-control-appCategorylevel2").val();
+				var optionValueFlatform = $(".form-control-appFlatform").val();
+				alert(optionValueFlatform+"========"+optionValueLevel1+"========"+optionValueLevel2);
+				$.getJSON(getPath()+"/getAppCategoryValue.json?optionValueLevel1="+optionValueLevel1+
+						"&optionValueLevel2="+optionValueLevel2+
+						"&optionValueFlatform="+optionValueFlatform);
+			});*/
 		}
-		$(".form-control-appCategorylevel2").append(str);
-	}
-	
+	});
 	//软件名称同名验证
 	$("#addappform #softwareName").blur(function(){
 		var softwareName = $("#softwareName").val();
@@ -68,7 +80,7 @@ $(function(){
     });
 	
 	//APK上传
-	$("#file-upload").fileinput({
+	$("#apk-upload").fileinput({
 		uploadUrl: getPath()+'/apkFileUpload.json',
 		language: 'zh',
 		maxFileSize:0,//单位为kb，如果为0表示不限制文件大小
@@ -76,8 +88,8 @@ $(function(){
     	allowedFileExtensions: ['apk']
     	//enctype:'multipart/form-data'
     }).on("fileuploaded",function(event, data, previewId, index) {    
-    	//console.log(data.response.logoLocPath);
-    	$("#fileLocPath").val(data.fileLocPath);
-    	$("#filePath").val(data.filePath);
+    	console.log(data.response.fileLocPath);
+    	$("#fileLocPath").val(data.response.fileLocPath);
+    	$("#filePath").val(data.response.filePath);
     });
 });

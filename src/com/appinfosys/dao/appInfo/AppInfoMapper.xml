@@ -19,8 +19,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 增加app -->
 	<insert id="addApp">
-		INSERT INTO app_info (softwareName,APKName,supportROM,interfaceLanguage,softwareSize,downloads,appInfo,logoLocPath,logoPicPath,fileLocPath,filePath,statusId,versionId)
-		VALUES (#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{appInfo},#{logoLocPath},#{logoPicPath},#{fileLocPath},#{filePath},1,33)
+		INSERT INTO app_info (softwareName,APKName,supportROM,interfaceLanguage,softwareSize,downloads,appInfo,
+								logoLocPath,logoPicPath,fileLocPath,filePath,flatformId,categoryLevel1,categoryLevel2,statusId,versionId)
+		VALUES (#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{appInfo},
+								#{logoLocPath},#{logoPicPath},#{fileLocPath},#{filePath},#{flatformId},#{categoryLevel1},#{categoryLevel2},1,33)
 	</insert>
 	
 	<!-- 删除app -->

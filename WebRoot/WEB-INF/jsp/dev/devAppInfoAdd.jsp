@@ -123,10 +123,10 @@
                                                 <div class="col-md-4">
                                                     <select class="form-control-appFlatform" name="flatformId">
                                                         <option value="">--请选择--</option>
-                                                        <option value="Category 1">Category 1</option>
+                                                        <!-- <option value="Category 1">Category 1</option>
                                                         <option value="Category 2">Category 2</option>
                                                         <option value="Category 3">Category 5</option>
-                                                        <option value="Category 4">Category 4</option>
+                                                        <option value="Category 4">Category 4</option> -->
                                                     </select>
                                                 </div>
                                             </div>
@@ -137,10 +137,10 @@
                                                 <div class="col-md-4">
                                                     <select class="form-control-appCategorylevel1" name="categoryLevel1">
                                                         <option value="">--请选择--</option>
-                                                        <option value="Category 1">Category 1</option>
+                                                        <!-- <option value="Category 1">Category 1</option>
                                                         <option value="Category 2">Category 2</option>
                                                         <option value="Category 3">Category 5</option>
-                                                        <option value="Category 4">Category 4</option>
+                                                        <option value="Category 4">Category 4</option> -->
                                                     </select>
                                                 </div>
                                             </div>
@@ -151,10 +151,10 @@
                                                 <div class="col-md-4">
                                                     <select class="form-control-appCategorylevel2" name="categoryLevel2">
                                                         <option value="">--请选择--</option>
-                                                        <option value="Category 1">Category 1</option>
+                                                        <!-- <option value="Category 1">Category 1</option>
                                                         <option value="Category 2">Category 2</option>
                                                         <option value="Category 3">Category 5</option>
-                                                        <option value="Category 4">Category 4</option>
+                                                        <option value="Category 4">Category 4</option> -->
                                                     </select>
                                                 </div>
                                             </div>
@@ -198,7 +198,7 @@
                                                 <div class="col-md-4">
                                                     <input type="hidden" id="fileLocPath" name="fileLocPath" value="">
                                                     <input type="hidden" id="filePath" name="filePath" value="">
-                                                    <input type="file" id="file-upload" name="myAppApk" multiple class="file-loading" ref=""/> 
+                                                    <input type="file" id="apk-upload" name="myAppApk" multiple class="file-loading" ref=""/> 
                                                 </div>
                                             </div>
                                         </div>

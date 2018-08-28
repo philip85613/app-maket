@@ -13,4 +13,12 @@ public interface AppCommentMapper {
 	 * @return
 	 */
 	public List<AppComment>	getAppCommentsByAppId(@Param(value="appId")Integer appId);
+	/**
+	 * 为某id的app增加一条评论
+	 * @param appId
+	 * @return
+	 */
+	public int addAppComment(@Param(value="appId")Integer appId,
+							 @Param(value="appUserId")Integer appUserId,
+							 @Param(value="commentInfo")String commentInfo);
 }

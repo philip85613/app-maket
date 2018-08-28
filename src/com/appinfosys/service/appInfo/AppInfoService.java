@@ -15,7 +15,7 @@ public interface AppInfoService {
 	
 	public int addApp(String softwareName,String APKName,String supportROM,String interfaceLanguage,
 		 	 			Integer softwareSize,Integer downloads,String appInfo,String logoLocPath,
-		 	 			String logoPicPath,String fileLocPath,String filePath);
+		 	 			String logoPicPath,String fileLocPath,String filePath,Integer flatformId,Integer categoryLevel1,Integer categoryLevel2);
 	
 	public int deleteApp(Integer id);
 	

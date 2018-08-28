@@ -4,7 +4,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.appinfosys.dao.appComment.AppCommentMapper">
 	<!-- 获取所有某id的app的所有评论 -->
-	<select id="getAppCommentsById" resultType="AppComment">
-		SELECT * FROM app_comment WHERE appId = #{appId}
+	<select id="getAppCommentsByAppId" resultMap="commentResult">
+		SELECT c.commentInfo,u.appUserName
+		FROM app_comment c,app_info i,app_user u
+		WHERE c.appId = i.id
+		AND c.appUserId = u.id
+		AND c.appId = #{appId}
 	</select>
+	<resultMap type="AppComment" id="commentResult">
+		<!-- <result property="categoryL1Name" column="category_Name"/>
+		<result property="categoryL2Name" column="categoryLevel2Name"/> 
+		<result property="versionName" column="versionNo"/> -->
+		<result property="userName" column="appUserName"/>
+	</resultMap>
+	<!-- 添加评论 -->
+	<insert id="addAppComment">
+		INSERT INTO app_comment (appUserId,commentInfo,appId) 
+		VALUES (#{appUserId},#{commentInfo},#{appId})
+	</insert>
 </mapper>

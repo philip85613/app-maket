@@ -17,6 +17,7 @@ public class AppUser {
 	private String appUserPhoneNum;//用户手机号
 	private Date appUserBirthday;//用户出生日期
 	private String appUserPicPath;//用户照片地址
+	
 	public Integer getId() {
 		return id;
 	}
