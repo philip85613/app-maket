@@ -31,8 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- SELECT * f.appFlatform FROM app_info a LEFT JOIN app_flatform f ON (a.flatformId = f.id) --> 
 		SELECT *
 		FROM app_info
-		ORDER BY id DESC
-		
+		order by downloads desc
 		<!-- SELECT a.*,s.app_Status AS appStatusName,f.app_Flatform AS appFlatformName
 		FROM app_info a,app_status s,app_flatform f
 		WHERE a.statusId = s.id AND a.flatformId = f.id
