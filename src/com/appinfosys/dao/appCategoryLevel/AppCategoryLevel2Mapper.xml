@@ -8,6 +8,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 根据父类ID获取二级分类目录 -->
 	<select id="getAllAppCategoryLevel2ByParentId" resultType="AppCategoryLevel2">
-		SELECT categoryLevel2Name FROM app_categorylevel2 WHERE parentId = #{parentId}
+		SELECT * FROM app_categorylevel2 WHERE parentId = #{parentId}
 	</select>
 </mapper>
