@@ -100,4 +100,9 @@ public class AppInfoServiceImpl implements AppInfoService{
 	public List<AppInfo> getAllAppInfo() {
 		return appInfoMapper.getAllAppInfo();
 	}
+
+	@Override
+	public AppInfo getAppInfoResultMapById(Integer id) {
+		return appInfoMapper.getAppInfoResultMapById(id);
+	}
 }
