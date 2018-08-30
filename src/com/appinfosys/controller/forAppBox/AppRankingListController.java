@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSON;
 import com.appinfosys.pojo.AppInfo;
 import com.appinfosys.service.appInfo.AppInfoService;
 
-@Service
+@Controller
 @RequestMapping("/rankinglist")
 public class AppRankingListController {
 	@Resource

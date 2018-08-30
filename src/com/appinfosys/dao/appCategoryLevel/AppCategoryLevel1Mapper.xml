@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.appinfosys.dao.appCategoryLevel.AppCategoryLevel1Mapper">
 	<select id="getAllAppCategoryLevel1" resultType="AppCategoryLevel1">
-		SELECT category_Name FROM app_categorylevel1
+		SELECT * FROM app_categorylevel1
 	</select>
 </mapper>
 
