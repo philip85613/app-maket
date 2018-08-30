@@ -105,4 +105,12 @@ public class AppInfoServiceImpl implements AppInfoService{
 	public AppInfo getAppInfoResultMapById(Integer id) {
 		return appInfoMapper.getAppInfoResultMapById(id);
 	}
+
+	@Override
+	public List<AppInfo> getAppInfoListByCategoryLevel(Integer categoryLevel1,
+			Integer categoryLevel2) {
+		List<AppInfo> appInfoList=null;
+		appInfoList=appInfoMapper.getAppInfoListByCategoryLevel(categoryLevel1, categoryLevel2);
+		return appInfoList;
+	}
 }

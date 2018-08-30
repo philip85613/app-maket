@@ -110,4 +110,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND i.categoryLevel2 = c2.id
 		AND i.id = #{id}
 	</select>
+	
+	<select id="getAppInfoListByCategoryLevel" resultType="AppInfo">
+		select * from app_info
+		<trim prefix="where" prefixOverrides="and|or">
+			<if test="categoryLevel1!=null">
+				categoryLevel1=#{categoryLevel1}
+			</if>
+			<if test="categoryLevel2!=null">
+				and categoryLevel2=#{categoryLevel2}
+			</if>
+		</trim>
+	</select>
 </mapper>

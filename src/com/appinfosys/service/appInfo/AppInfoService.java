@@ -2,6 +2,8 @@ package com.appinfosys.service.appInfo;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.appinfosys.pojo.AppInfo;
 
 public interface AppInfoService {
@@ -43,4 +45,6 @@ public interface AppInfoService {
 	public List<AppInfo> getAllAppInfo();
 	
 	public AppInfo getAppInfoResultMapById(Integer id);
+	
+	public List<AppInfo> getAppInfoListByCategoryLevel(Integer categoryLevel1,Integer categoryLevel2);
 }

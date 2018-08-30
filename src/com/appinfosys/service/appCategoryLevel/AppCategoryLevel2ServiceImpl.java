@@ -25,4 +25,9 @@ public class AppCategoryLevel2ServiceImpl implements AppCategoryLevel2Service {
 			Integer parentId) {
 		return appCategoryLevel2Mapper.getAllAppCategoryLevel2ByParentId(parentId);
 	}
+
+	@Override
+	public AppCategoryLevel2 getAppCategoryLevel2ById(Integer id) {
+		return appCategoryLevel2Mapper.getAppCategoryLevel2ById(id);
+	}
 }
