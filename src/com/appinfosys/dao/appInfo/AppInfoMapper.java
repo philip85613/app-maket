@@ -71,4 +71,7 @@ public interface AppInfoMapper {
 	public List<AppInfo> getAllAppInfo();
 	
 	public AppInfo getAppInfoResultMapById(@Param(value="id")Integer id);
+	
+	public List<AppInfo> getAppInfoListByCategoryLevel(@Param(value="categoryLevel1")Integer categoryLevel1,
+											 @Param(value="categoryLevel2")Integer categoryLevel2);
 }

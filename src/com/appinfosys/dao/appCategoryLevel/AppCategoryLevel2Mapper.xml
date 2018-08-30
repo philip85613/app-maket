@@ -10,4 +10,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAllAppCategoryLevel2ByParentId" resultType="AppCategoryLevel2">
 		SELECT * FROM app_categorylevel2 WHERE parentId = #{parentId}
 	</select>
+	<select id="getAppCategoryLevel2ById" resultType="AppCategoryLevel2">
+		select * from app_categorylevel2
+		<trim prefix="where" prefixOverrides="or | and">
+			<if test="id!=null">
+				id=#{id}
+			</if>
+		</trim>
+	</select>
 </mapper>
