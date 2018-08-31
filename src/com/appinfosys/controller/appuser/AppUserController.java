@@ -62,7 +62,6 @@ public class AppUserController {
 		}else{
 			return -1;
 		}
-		
 	}
 	@RequestMapping("/appuserinfo.json")
 	@ResponseBody

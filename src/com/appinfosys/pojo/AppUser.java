@@ -17,13 +17,13 @@ public class AppUser {
 	private String appUserPassword;//用户登录密码
 	private char appUserSex;//用户性别
 	private Integer createBy;//用户创建id
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@JSONField(format="yyyy-MM-dd")
-	private Date creationDate;//用户创建日期
+	/*@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JSONField(format="yyyy-MM-dd")*/
+	private String creationDate;//用户创建日期
 	private String appUserPhoneNum;//用户手机号
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@JSONField(format="yyyy-MM-dd")
-	private Date appUserBirthday;//用户出生日期
+	/*@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JSONField(format="yyyy-MM-dd")*/
+	private String appUserBirthday;//用户出生日期
 	private String appUserEmail;//用户邮箱地址
 	public String getAppUserEmail() {
 		return appUserEmail;
@@ -69,10 +69,10 @@ public class AppUser {
 	public void setCreateBy(Integer createBy) {
 		this.createBy = createBy;
 	}
-	public Date getCreationDate() {
+	public String getCreationDate() {
 		return creationDate;
 	}
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(String creationDate) {
 		this.creationDate = creationDate;
 	}
 	public String getAppUserPhoneNum() {
@@ -81,10 +81,10 @@ public class AppUser {
 	public void setAppUserPhoneNum(String appUserPhoneNum) {
 		this.appUserPhoneNum = appUserPhoneNum;
 	}
-	public Date getAppUserBirthday() {
+	public String getAppUserBirthday() {
 		return appUserBirthday;
 	}
-	public void setAppUserBirthday(Date appUserBirthday) {
+	public void setAppUserBirthday(String appUserBirthday) {
 		this.appUserBirthday = appUserBirthday;
 	}
 	public String getAppUserPicPath() {
