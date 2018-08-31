@@ -1,5 +1,6 @@
 package com.appinfosys.dao.appComment;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -20,5 +21,6 @@ public interface AppCommentMapper {
 	 */
 	public int addAppComment(@Param(value="appId")Integer appId,
 							 @Param(value="appUserId")Integer appUserId,
-							 @Param(value="commentInfo")String commentInfo);
+							 @Param(value="commentInfo")String commentInfo,
+							 @Param(value="addDate")Date addDate);
 }

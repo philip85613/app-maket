@@ -1,5 +1,6 @@
 package com.appinfosys.service.appComment.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -21,7 +22,7 @@ public class AppCommentServiceImpl implements AppCommentService{
 	}
 
 	@Override
-	public int addAppComment(Integer appId, Integer appUserId,String commentInfo) {
-		return appCommentMapper.addAppComment(appId, appUserId, commentInfo);
+	public int addAppComment(Integer appId, Integer appUserId,String commentInfo,Date addDate) {
+		return appCommentMapper.addAppComment(appId, appUserId, commentInfo,addDate);
 	}
 }

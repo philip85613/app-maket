@@ -247,6 +247,15 @@ $(function(){
 				$("#appInfoDetail #supportROM").val(data.supportROM);
 				$("#appInfoDetail #interfaceLanguage").val(data.interfaceLanguage);
 				$("#appInfoDetail #downloads").val(data.downloads);
+				if(data.flatformId==1){
+					$("#appInfoDetail #flatformId").val("手机");
+				}
+				if(data.flatformId==2){
+					$("#appInfoDetail #flatformId").val("平板");
+				}
+				if(data.flatformId==3){
+					$("#appInfoDetail #flatformId").val("通用");
+				}
 				$("#appInfoDetail #statusId").val(data.statusName);
 				$("#appInfoDetail #appInfo").val(data.appInfo);
 				$("#appInfoDetail #softwareSize").val(data.softwareSize);

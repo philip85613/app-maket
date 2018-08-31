@@ -48,7 +48,7 @@ public class AppDownloadController {
 		response.reset();
 		response.setHeader("Access-Control-Allow-Origin", "*"); 
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("multipart/form-data");
+		response.setContentType("multipart/form-data"); //text/html
 		response.setHeader("Content-Disposition", 
 				"attachment;fileName="+URLEncoder.encode(file1.getName(), "UTF-8"));
 		InputStream input=new FileInputStream(file);

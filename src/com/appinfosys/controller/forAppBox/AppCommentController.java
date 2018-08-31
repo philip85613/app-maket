@@ -1,5 +1,6 @@
 package com.appinfosys.controller.forAppBox;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -29,5 +30,17 @@ public class AppCommentController {
 		log.debug("进入getAppComments=======================");
 		List<AppComment> appComments = appCommentService.getAppCommentsByAppId(id);
 		return JSON.toJSON(appComments);
+	}
+	
+	@RequestMapping("/addComment")
+	@ResponseBody
+	public Object addComment(Integer appId,Integer appUserId,String commentInfo,Date addDate){
+		log.info("进入addComment=======================");
+		log.info("进入appId======================="+appId);
+		log.info("进入appUserId======================="+appUserId);
+		log.info("进入commentInfo======================="+commentInfo);
+		addDate = new Date();
+		int result = appCommentService.addAppComment(appId, appUserId, commentInfo,addDate);
+		return this.getAppComments(appId);
 	}
 }
