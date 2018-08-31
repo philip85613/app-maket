@@ -2,6 +2,7 @@ package com.appinfosys.controller.dev;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,24 +45,6 @@ public class AppInfoController {
 		log.debug("map================"+map);
 		log.debug("JSON================"+JSON.toJSON(appInfoList));
 		return JSON.toJSON(map);
-	}*/
-	/**
-	 * 获得select框的value值
-	 * @param optionValueLevel1
-	 * @param optionValueLevel2
-	 * @return
-	 *//*
-	@RequestMapping("/getAppCategoryValue.json")
-	public Object getAppCategoryValue(@RequestParam(value="optionValueLevel1")Integer optionValueLevel1,
-									  @RequestParam(value="optionValueLevel2")Integer optionValueLevel2,
-									  @RequestParam(value="optionValueFlatform")Integer optionValueFlatform){
-		log.debug("进入getAppCategoryValue==================================");
-		List appCategoryValues = new ArrayList();
-		appCategoryValues.add(optionValueLevel1);
-		appCategoryValues.add(optionValueLevel2);
-		appCategoryValues.add(optionValueFlatform);
-		log.debug("appCategoryValues.size()=================================="+appCategoryValues.size());
-		return appCategoryValues;
 	}*/
 	/**
 	 * APP图标上传处理
@@ -148,9 +131,11 @@ public class AppInfoController {
 	public String doAppAdd(String softwareName,String APKName,String supportROM,String interfaceLanguage,
 	 							Integer softwareSize,Integer downloads,String appInfo,String logoLocPath,
 	 							String logoPicPath,String fileLocPath,String filePath,Integer flatformId,
-	 							Integer categoryLevel1,Integer categoryLevel2){
+	 							Integer categoryLevel1,Integer categoryLevel2,String appSummary,Date updateDate){
+		updateDate = new Date();
 		appInfoMapper.addApp(softwareName, APKName, supportROM, interfaceLanguage, softwareSize, downloads, 
-								appInfo, logoLocPath,logoPicPath,fileLocPath,filePath,flatformId,categoryLevel1,categoryLevel2);
+								appInfo, logoLocPath,logoPicPath,fileLocPath,filePath,flatformId,categoryLevel1,
+								categoryLevel2,appSummary,updateDate);
 		return "redirect:/dev/appinfo";
 	}
 	

@@ -1,5 +1,6 @@
 package com.appinfosys.service.appInfo.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -33,10 +34,10 @@ public class AppInfoServiceImpl implements AppInfoService{
 	public int addApp(String softwareName, String APKName, String supportROM,
 			String interfaceLanguage, Integer softwareSize, Integer downloads,
 			String appInfo,String logoLocPath,String logoPicPath,String fileLocPath,
-			String filePath,Integer flatformId,Integer categoryLevel1,Integer categoryLevel2) {
+			String filePath,Integer flatformId,Integer categoryLevel1,Integer categoryLevel2,String appSummary,Date updateDate) {
 		return appInfoMapper.addApp(softwareName, APKName, supportROM, interfaceLanguage, softwareSize, 
 									downloads, appInfo, logoLocPath,logoPicPath,fileLocPath,filePath,
-									flatformId,categoryLevel1,categoryLevel2);
+									flatformId,categoryLevel1,categoryLevel2,appSummary,updateDate);
 	}
 
 	@Override
@@ -112,5 +113,10 @@ public class AppInfoServiceImpl implements AppInfoService{
 		List<AppInfo> appInfoList=null;
 		appInfoList=appInfoMapper.getAppInfoListByCategoryLevel(categoryLevel1, categoryLevel2);
 		return appInfoList;
+	}
+
+	@Override
+	public int updateDownloads(Integer id) {
+		return appInfoMapper.updateDownloads(id);
 	}
 }
