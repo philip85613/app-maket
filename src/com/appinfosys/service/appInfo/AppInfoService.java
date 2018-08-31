@@ -1,8 +1,7 @@
 package com.appinfosys.service.appInfo;
 
+import java.util.Date;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 import com.appinfosys.pojo.AppInfo;
 
@@ -17,7 +16,8 @@ public interface AppInfoService {
 	
 	public int addApp(String softwareName,String APKName,String supportROM,String interfaceLanguage,
 		 	 			Integer softwareSize,Integer downloads,String appInfo,String logoLocPath,
-		 	 			String logoPicPath,String fileLocPath,String filePath,Integer flatformId,Integer categoryLevel1,Integer categoryLevel2);
+		 	 			String logoPicPath,String fileLocPath,String filePath,Integer flatformId,
+		 	 			Integer categoryLevel1,Integer categoryLevel2,String appSummary,Date updateDate);
 	
 	public int deleteApp(Integer id);
 	
@@ -47,4 +47,6 @@ public interface AppInfoService {
 	public AppInfo getAppInfoResultMapById(Integer id);
 	
 	public List<AppInfo> getAppInfoListByCategoryLevel(Integer categoryLevel1,Integer categoryLevel2);
+	
+	public int updateDownloads(Integer id);
 }

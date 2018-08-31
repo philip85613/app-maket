@@ -1,5 +1,6 @@
 package com.appinfosys.dao.appInfo;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -31,7 +32,9 @@ public interface AppInfoMapper {
 				 	  @Param(value="filePath")String filePath,
 				 	  @Param(value="flatformId")Integer flatformId,
 				 	  @Param(value="categoryLevel1")Integer categoryLevel1,
-				 	  @Param(value="categoryLevel2")Integer categoryLevel2);
+				 	  @Param(value="categoryLevel2")Integer categoryLevel2,
+				 	  @Param(value="appSummary")String appSummary,
+				 	  @Param(value="updateDate")Date updateDate);
 	
 	public int deleteApp(@Param(value="id")Integer id);
 	
@@ -74,4 +77,6 @@ public interface AppInfoMapper {
 	
 	public List<AppInfo> getAppInfoListByCategoryLevel(@Param(value="categoryLevel1")Integer categoryLevel1,
 											 @Param(value="categoryLevel2")Integer categoryLevel2);
+	
+	public int updateDownloads(@Param(value="id")Integer id);
 }

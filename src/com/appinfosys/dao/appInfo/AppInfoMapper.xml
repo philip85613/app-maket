@@ -19,9 +19,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 增加app -->
 	<insert id="addApp">
 		INSERT INTO app_info (softwareName,APKName,supportROM,interfaceLanguage,softwareSize,downloads,appInfo,
-								logoLocPath,logoPicPath,fileLocPath,filePath,flatformId,categoryLevel1,categoryLevel2,statusId,versionId)
+								logoLocPath,logoPicPath,fileLocPath,filePath,flatformId,categoryLevel1,
+								categoryLevel2,appSummary,updateDate,statusId,versionId)
 		VALUES (#{softwareName},#{APKName},#{supportROM},#{interfaceLanguage},#{softwareSize},#{downloads},#{appInfo},
-								#{logoLocPath},#{logoPicPath},#{fileLocPath},#{filePath},#{flatformId},#{categoryLevel1},#{categoryLevel2},1,33)
+								#{logoLocPath},#{logoPicPath},#{fileLocPath},#{filePath},#{flatformId},
+								#{categoryLevel1},#{categoryLevel2},#{appSummary},#{updateDate},1,33)
 	</insert>
 	
 	<!-- 删除app -->
@@ -122,4 +124,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</select>
+	<!-- 更新下载次数 -->
+	<update id="updateDownloads">
+		UPDATE app_info SET downloads=downloads+1 WHERE id = #{id}
+	</update>
 </mapper>

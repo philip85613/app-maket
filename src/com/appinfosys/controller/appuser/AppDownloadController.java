@@ -13,7 +13,9 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.appinfosys.controller.dev.DevController;
 import com.appinfosys.pojo.AppInfo;
 import com.appinfosys.service.appInfo.AppInfoService;
@@ -48,7 +50,7 @@ public class AppDownloadController {
 		response.reset();
 		response.setHeader("Access-Control-Allow-Origin", "*"); 
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("multipart/form-data"); //text/html
+		response.setContentType("application/vnd.android.package-archive"); //text/html,application/vnd.android.package-archive
 		response.setHeader("Content-Disposition", 
 				"attachment;fileName="+URLEncoder.encode(file1.getName(), "UTF-8"));
 		InputStream input=new FileInputStream(file);
@@ -62,5 +64,13 @@ public class AppDownloadController {
 		out.close();
 		input.close();
 		return null;
+	}
+	
+	@RequestMapping("/addDownloads")
+	@ResponseBody
+	public Object addDownloads(@RequestParam String id){
+		log.debug("进入addDownloads==================================");
+		int result = appInfoService.updateDownloads(Integer.parseInt(id));
+		return JSON.toJSON(appInfoService.getAllAppsInfo());
 	}
 }

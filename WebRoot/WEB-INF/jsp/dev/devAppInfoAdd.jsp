@@ -179,6 +179,13 @@
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-4">
+                                                    <input type="text" name="appSummary" data-required="1" class="form-control" id="appInfo" required="required"/></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">应用详情
+                                                    <span class="required"> * </span>
+                                                </label>
+                                                <div class="col-md-4">
                                                     <input type="text" name="appInfo" data-required="1" class="form-control" id="appInfo" required="required"/></div>
                                             </div>
                                             <div class="form-group">
